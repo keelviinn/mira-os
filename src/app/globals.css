@@ -8,26 +8,88 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+h1 {
+  @apply text-2xl font-bold text-[#343a40];
+}
+
+h2 {
+  @apply text-xl font-bold text-[#343a40] mb-2;
+}
+
+p {
+  @apply text-base text-[#343a40] mb-2;
+}
+
+strong {
+  @apply font-extrabold;
+}
+
+dl,
+ol,
+ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+  unicode-bidi: isolate;
+}
+
+.col {
+  @apply relative w-full px-4;
+}
+
+.col-md-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.btn {
+  @apply inline-block font-normal text-[#212529] text-center align-middle select-none bg-transparent border border-transparent py-1.5 px-3 text-base rounded;
+  @apply transition duration-150 ease-in-out;
+}
+
+.btn-secondary {
+  @apply !text-white !bg-[#6c757d] !border-[#6c757d];
+}
+
+.btn-action {
+  @apply !text-white !bg-[#007bff] !border-[#007bff];
+}
+
+.btn-danger {
+  @apply !text-white !bg-[#dc3545] !border-[#dc3545];
+}
+
+.btn:not(:disabled):not(.disabled) {
+  @apply cursor-pointer;
+}
+
+.button-text {
+  @apply cursor-pointer ml-2 text-sm font-normal text-[#007bff];
+}
+
+.input-height {
+  height: calc(1.5em + 0.75rem + 2px);
+}
+
+.form-control {
+  @apply w-full block py-1.5 px-3 text-base font-normal bg-white text-[#495057] bg-clip-padding border border-[#ced4da] rounded transition-colors duration-150;
 }
