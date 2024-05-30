@@ -1,6 +1,10 @@
 import Button from "@/components/Button/Button";
 
 export default function TreatmentPlan() {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+  }
+
   return (
     <div className="mb-4">
       <div className="text-lg font-bold cursor-pointer mb-2">
@@ -11,7 +15,7 @@ export default function TreatmentPlan() {
           <strong>Provider Name:</strong> Ozita Cooper, MD{" "}
           <span className="button-text">(Edit)</span>
         </p>
-        <form action="">
+        <form onSubmit={handleSubmit}>
           <div className="space-y-2 mb-2">
             <textarea
               name="summary"
@@ -37,7 +41,7 @@ export default function TreatmentPlan() {
           </div>
 
           <div className="mb-4">
-            <Button variant="action" type="submit" onClick={() => {}}>
+            <Button variant="action" type="submit">
               Finish
             </Button>
           </div>

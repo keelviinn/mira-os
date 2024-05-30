@@ -12,6 +12,10 @@ interface Props {
 export default function Chat({ chat, view }: Props) {
   const [chatMessages] = useState(chat);
 
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+  }
+
   return (
     <>
       <div className="border-t border-[#dee2e6] pt-4 mt-4">
@@ -32,14 +36,14 @@ export default function Chat({ chat, view }: Props) {
         ))}
       </div>
 
-      <form action="mb-4">
+      <form action="mb-4" onSubmit={handleSubmit}>
         <div className="flex gap-2">
           <input
             type="text"
             placeholder="Type a message..."
             className="form-control input-height"
           />
-          <Button variant="secondary" type="submit" onClick={() => {}}>
+          <Button variant="secondary" type="submit">
             Send Message
           </Button>
         </div>

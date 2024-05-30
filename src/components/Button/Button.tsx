@@ -3,7 +3,7 @@ interface Props {
   isDisabled?: boolean;
   variant?: "primary" | "secondary" | "danger" | "action";
   type?: "button" | "submit" | "reset";
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export default function Button({
